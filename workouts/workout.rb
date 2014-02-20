@@ -29,9 +29,9 @@ class Workout
   end
 end
 
-a = StrengthTraining.new("chavdar", 20, 72, 172, "5x6")
-a.set_workout_data(Workout.new(Date.new(2013, 9, 8), 74, 80, -1, 80, -1, 40))
-a.set_workout_data(Workout.new(Date.new(2013, 9, 19), 74, 90, -1, 90, -1, 50))
-a.set_workout_data(Workout.new(Date.new(2013, 9, 12), 74, 85, -1, 85, -1, 45))
-a.set_workout_data(Workout.new(Date.new(2013, 8, 12), 74, 70, -1, 70, -1, 35))
-a.set_workout_data(Workout.new(Date.new(2013, 10, 12), 76, 70, -1, 70, -1, 35))
+# a = StrengthTraining.new("chavdar", 20, 72, 172, "5x6")
+# a.set_workout_data(Workout.new(Date.new(2013, 9, 8), 74, 80, -1, 80, -1, 40))
+# a.set_workout_data(Workout.new(Date.new(2013, 9, 19), 74, 90, -1, 90, -1, 50))
+# a.set_workout_data(Workout.new(Date.new(2013, 9, 12), 74, 85, -1, 85, -1, 45))
+# a.set_workout_data(Workout.new(Date.new(2013, 8, 12), 74, 70, -1, 70, -1, 35))
+# a.set_workout_data(Workout.new(Date.new(2013, 10, 12), 76, 70, -1, 70, -1, 35))
