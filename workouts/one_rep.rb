@@ -1,9 +1,7 @@
-require '../strength_training'
-
 class OneRep
   attr_reader :date, :momentary_weight, :squat, :deadlift, :bench_press, :shoulder_press, :pull_up
 
-  def initialize(date = Date::today, momentary_weight, squat, deadlift, bench_press, shoulder_press, pull_up)
+  def initialize(date = Date::today.to_s, momentary_weight, squat, deadlift, bench_press, shoulder_press, pull_up)
     @date = date
     @momentary_weight = momentary_weight
     @squat = squat
@@ -14,7 +12,7 @@ class OneRep
   end
 
   def set_one_rep_database(person)
-    db = SQLite3::Database.new("../strength_training.db")
+    db = SQLite3::Database.new("strength_training.db")
     db.execute("create table if not exists #{person.name + '_records'} (date varchar(10),
                                                                         weight integer,
                                                                         squat integer,
@@ -23,8 +21,8 @@ class OneRep
                                                                         shoulder_press integer,
                                                                         pull_up integer);"
     )
-    if db.execute("select date from #{person.name + '_records'}").all? { |date_from_data| date_from_data[0] != date.to_s }
-      db.execute("insert into #{person.name + '_records'} values ('#{date.to_s}', #{momentary_weight}, #{squat}, #{deadlift}, #{bench_press}, #{shoulder_press}, #{pull_up})")
+    if db.execute("select date from #{person.name + '_records'}").all? { |date_from_data| date_from_data[0] != date }
+      db.execute("insert into #{person.name + '_records'} values ('#{date}', #{momentary_weight}, #{squat}, #{deadlift}, #{bench_press}, #{shoulder_press}, #{pull_up})")
     end
   end
 end

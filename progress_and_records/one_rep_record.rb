@@ -1,5 +1,3 @@
-require './strength_training'
-
 class OneRepRecord
   attr_reader :person
 
