@@ -14,7 +14,7 @@ class StrengthTraining
   end
 
   def set_person_database
-    db = SQLite3::Database.new("strength_training.db")
+    db = SQLite3::Database.new("../strength_training.db")
     db.execute("create table if not exists users (name varchar(30),
                                                   age integer,
                                                   weight integer,
@@ -29,7 +29,7 @@ class StrengthTraining
   def set_workout_data(workout)
     if (workout.momentary_weight - weight).abs > 1
       weight = workout.momentary_weight
-      db = SQLite3::Database.new("strength_training.db")
+      db = SQLite3::Database.new("../strength_training.db")
       db.execute("update users set weight = #{weight} where name = '#{name}'")
     end
     workout.set_workout_database(self)
@@ -38,7 +38,7 @@ class StrengthTraining
   def set_one_rep_data(one_rep)
     if (one_rep.momentary_weight - weight).abs > 1
       weight = one_rep.momentary_weight
-      db = SQLite3::Database.new("strength_training.db")
+      db = SQLite3::Database.new("../strength_training.db")
       db.execute("update users set weight = #{weight} where name = '#{name}'")
     end
     one_rep.set_one_rep_database(self)
