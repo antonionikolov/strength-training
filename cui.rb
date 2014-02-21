@@ -5,6 +5,7 @@ require './progress_and_records/exercises_by_date'
 require './progress_and_records/one_rep_record'
 require './progress_and_records/progress'
 require './progress_and_records/training_program_record'
+require './charts/chart'
 
 module Cui
   puts "Enter 'user' your name and password if you have accout, 
@@ -38,6 +39,10 @@ module Cui
       @user = StrengthTraining.new(name, user[1], user[2], user[3], user[4], password) if user[0] == name
     end
     "You are now loged with the username #{name}"
+  end
+
+  def info
+    "Name: #{@user.name}, Age: #{@user.age}, Weight: #{@user.weight}, Height: #{@user.height}, Training program: #{@user.training_program}."
   end
 
   def log_out
@@ -84,8 +89,24 @@ module Cui
     "Your #{exercise} program record is #{weight}!"
   end
 
+  def graphic(exercise, from_date, to_date)
+    chart_data = Charts::ChartData.new exercise
+    chart_data.draw Charts::Graphic.new(from_date, to_date, @user)
+    chart_data.render_as(Charts::Renderers::RChart)
+    system("ristretto ./line_chart.png")
+    "Chart for #{exercise} sets from #{from_date} to #{to_date}!"
+  end
+
+  def one_rep_graphic(exercise, from_date, to_date)
+    chart_data = Charts::ChartData.new exercise
+    chart_data.draw Charts::GraphicOneRep.new(from_date, to_date, @user)
+    chart_data.render_as(Charts::Renderers::RChart)
+    system("ristretto ./line_chart.png")
+    "Chart for one rep #{exercise} from #{from_date} to #{to_date}!"
+  end
+
   private
-  
+
   @user
 end
 

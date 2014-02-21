@@ -1,4 +1,3 @@
-require '../strength_training'
 require 'googlecharts'
 require 'rchart'
 
@@ -86,8 +85,8 @@ module Charts
     end
 
     def draw(chart)
-      db = SQLite3::Database.new("../strength_training.db")
-      period = db.execute("select date, #{chart.exercise} from #{person.name} order by date").select { |date| from_date.to_s <= date[0] and date[0] <= to_date.to_s and date[1] > 0 }
+      db = SQLite3::Database.new("strength_training.db")
+      period = db.execute("select date, #{chart.exercise} from #{person.name} order by date").select { |date| from_date <= date[0] and date[0] <= to_date and date[1] > 0 }
       period.each { |exercise| chart.set_exercise(exercise[0], exercise[1]) }
     end
   end
@@ -102,8 +101,8 @@ module Charts
     end
 
     def draw(chart)
-      db = SQLite3::Database.new("../strength_training.db")
-      period = db.execute("select date, #{chart.exercise} from #{person.name + '_records'} order by date").select { |date| from_date.to_s <= date[0] and date[0] <= to_date.to_s and date[1] > 0 }
+      db = SQLite3::Database.new("strength_training.db")
+      period = db.execute("select date, #{chart.exercise} from #{person.name + '_records'} order by date").select { |date| from_date <= date[0] and date[0] <= to_date and date[1] > 0 }
       period.each { |exercise| chart.set_exercise(exercise[0], exercise[1]) }
     end
   end
