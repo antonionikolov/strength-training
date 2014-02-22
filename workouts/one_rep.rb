@@ -2,7 +2,7 @@ class OneRep
   attr_reader :date, :momentary_weight, :squat, :deadlift, :bench_press, :shoulder_press, :pull_up
 
   def initialize(date = Date::today.to_s, momentary_weight, squat, deadlift, bench_press, shoulder_press, pull_up)
-    @date = date
+    @date = date.to_s
     @momentary_weight = momentary_weight
     @squat = squat
     @deadlift = deadlift
@@ -26,11 +26,3 @@ class OneRep
     end
   end
 end
-
-# a = StrengthTraining.new("dragan", 20, 72, 172, "5x6")
-# a.set_one_rep_data(OneRep.new(Date.new(2013, 9, 8), 73, 100, -1, 100, -1, 40))
-# a.set_one_rep_data(OneRep.new(Date.new(2013, 10, 8), 73, 101, 130, 100, 70, 50))
-# a.set_one_rep_data(OneRep.new(Date.new(2013, 11, 8), 73, 110, -1, 120, -1, 60))
-# a.set_one_rep_data(OneRep.new(Date.new(2013, 12, 8), 73, 140, -1, 110, -1, 40))
-# a.set_one_rep_data(OneRep.new(Date.new(2013, 12, 9), 73, 130, -1, 115, -1, 30))
-# a.set_one_rep_data(OneRep.new(Date.new(2013, 12, 10), 74, 130, -1, 115, -1, 30))

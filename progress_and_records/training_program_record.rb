@@ -30,11 +30,3 @@ class TrainingProgramRecord
     db.execute("select pull_up from #{person.name}").map { |pull_up| pull_up[0] }.max
   end
 end
-
-# a = StrengthTraining.new("dragan", 20, 72, 172, "5x6")
-# tpr = TrainingProgramRecord.new(a)
-# p tpr.squat
-# p tpr.deadlift
-# p tpr.bench_press
-# p tpr.shoulder_press
-# p tpr.pull_up

@@ -1,0 +1,7 @@
+require '../strength_training'
+require '../workouts/workout'
+require '../workouts/one_rep'
+require '../progress_and_records/exercises_by_date'
+require '../progress_and_records/one_rep_record'
+require '../progress_and_records/progress'
+require '../progress_and_records/training_program_record'

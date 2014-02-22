@@ -34,12 +34,3 @@ class OneRepRecord
     squat + deadlift + bench_press
   end
 end
-
-# a = StrengthTraining.new("dragan", 20, 72, 172, "5x6")
-# orr = OneRepRecord.new(a)
-# p orr.squat
-# p orr.deadlift
-# p orr.bench_press
-# p orr.shoulder_press
-# p orr.pull_up
-# p orr.squat_deadlift_bench_press
