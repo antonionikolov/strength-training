@@ -48,6 +48,7 @@ module Cui
 
   def log_out
     @user = nil
+    "You loged out!"
   end
 
   def workout(date = Date::today.to_s, momentary_weight, squat, deadlift, bench_press, shoulder_press, pull_up)
