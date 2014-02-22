@@ -38,6 +38,7 @@ module Cui
     db.execute("select name, age, weight, height, training_program, password from users").each do |user|
       @user = StrengthTraining.new(name, user[1], user[2], user[3], user[4], password) if user[0] == name
     end
+    raise SecurityError if @user == nil
     "You are now loged with the username #{name}"
   end
 
