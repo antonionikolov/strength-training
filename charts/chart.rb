@@ -107,10 +107,3 @@ module Charts
     end
   end
 end
-
-# module Charts
-#   c = ChartData.new "squat"
-#   a = StrengthTraining.new("dragan", 20, 72, 172, "5x6")
-#   c.draw GraphicOneRep.new(Date.new(2013, 8, 12), Date.new(2013, 12, 12), a)
-#   c.render_as(Renderers::RChart)
-# end
